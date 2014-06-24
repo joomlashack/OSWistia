@@ -24,6 +24,8 @@ class plgContentWistiaEmbed extends JPlugin
 
         $lang = JFactory::getLanguage();
         $lang->load('plg_content_wistiaembed.sys', __DIR__);
+
+        JHtml::addIncludePath(__DIR__ . '/html');
     }
 
     /**
