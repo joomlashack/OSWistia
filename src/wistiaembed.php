@@ -47,7 +47,7 @@ class plgContentWistiaEmbed extends JPlugin
         if (!empty($tags)) {
             foreach ($tags as $tag) {
                 // Extract ID and params from the tag
-                $tagData = plgContentWistiaEmbedHelper::parseWistiaTag($tag);
+                $tagData = plgContentWistiaEmbedHelper::parseWistiaTag($tag, $params);
 
                 if (!empty($tagData->id)) {
                     // Get the embed code
