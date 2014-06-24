@@ -82,12 +82,29 @@ abstract class plgContentWistiaEmbedHelper
         return $parsed;
     }
 
-    public function parseWistiaTag($tag)
+    /**
+     * Parse {wistia} tag string, returning the ID and attributes/params.
+     *
+     * @param  string $tag    The wistia tag
+     * @param  array  $params An array with params to overwrite the params found on the tag
+     * @return array          An array with ID and a list of params
+     */
+    public function parseWistiaTag($tag, $params = array())
     {
         $data = new stdClass;
 
+        // Video ID
         $data->id = self::getVideoID($tag);
-        $data->params  = self::parseParams($tag);
+
+        // Params found on the tag
+        $data->params = self::parseParams($tag);
+
+        // Overwrite params with the params passed on runtime
+        if (!empty($params)) {
+            foreach ($params as $param => $value) {
+                $data->params[$param] = $value;
+            }
+        }
 
         return $data;
     }
