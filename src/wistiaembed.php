@@ -10,6 +10,8 @@ defined('_JEXEC') or die();
 
 jimport('joomla.plugin.plugin');
 
+require_once "helper.php";
+
 /**
  * Wistia Video Embedder Content Plugin
  *
@@ -38,15 +40,23 @@ class plgContentWistiaEmbed extends JPlugin
             return true;
         }
 
+        $tags = plgContentWistiaEmbedHelper::extractWistiaTagsFromText($article->text);
 
+        if (!empty($tags)) {
+            foreach ($tags as $tag) {
+                // Extract ID and params from the tag
+                $tagData = plgContentWistiaEmbedHelper::parseWistiaTag($tag);
+
+                if (!empty($tagData->id)) {
+                    // Get the embed code
+                    $embed = JHtml::_('wistia.embed', $tagData->id, $tagData->params);
+
+                    // Replace the tag with the embed code
+                    $article->text = str_replace($tag, $embed, $article->text);
+                }
+            }
+        }
 
         return true;
-    }
-
-    protected function wistiaCodeEmbed($vCode)
-    {
-        $output = '';
-
-        return $output;
     }
 }
