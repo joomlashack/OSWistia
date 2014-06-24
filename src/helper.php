@@ -109,6 +109,12 @@ abstract class plgContentWistiaEmbedHelper
         return $data;
     }
 
+    /**
+     * Extract multiple {wista} tags from a string
+     *
+     * @param  string $text A string with
+     * @return array        An array with all {wista} tags found on the text
+     */
     public function extractWistiaTagsFromText($text)
     {
         preg_match_all('#\{wistia([^\}]*)\}[^\{]*\{\/wistia\}#i', $text, $matches);
