@@ -8,8 +8,6 @@
 
 defined('_JEXEC') or die();
 
-require_once JPATH_ADMINISTRATOR.DS.'components'.DS.'com_oswistia'.DS.'helpers'.DS.'oswistia.php';
-
 abstract class JHtmlWistia
 {
     /**
