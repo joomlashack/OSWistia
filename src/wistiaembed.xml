@@ -16,6 +16,10 @@
         <filename plugin="wistiaembed">style.css</filename>
     </files>
 
+    <media destination="plg_content_wistiaembed" folder="media">
+        <folder>js</folder>
+    </media>
+
     <config>
         <fields name="params">
             <fieldset name="basic">
