@@ -49,6 +49,10 @@ class plgContentWistiaEmbed extends JPlugin
                 // Extract ID and params from the tag
                 $tagData = plgContentWistiaEmbedHelper::parseWistiaTag($tag, $params);
 
+                if (isset($params['cacheVideoID']) && $params['cacheVideoID'] === true) {
+                    plgContentWistiaEmbedHelper::setVideoIdCache($tagData->id);
+                }
+
                 if (!empty($tagData->id)) {
                     // Get the embed code
                     $embed = JHtml::_('wistia.embed', $tagData->id, $tagData->params);
