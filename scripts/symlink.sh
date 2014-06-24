@@ -56,6 +56,7 @@ create_symlink () {
 
 create_symlink language/en-GB/en-GB.$EXTENSION_NAME.sys.ini administrator/language/en-GB/en-GB.$EXTENSION_NAME.sys.ini
 create_symlink ./ plugins/content/wistiaembed
+create_symlink media media/plg_content_wistiaembed
 
 echo "Links created successfully"
 exit
