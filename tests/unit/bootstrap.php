@@ -79,3 +79,6 @@ define('OSWISTIA_MEDIA', OSWISTIA_SRC . '/media');
 define('OSWISTIA_MOCK', realpath(OSWISTIA_SRC . '/../tests/unit/mock'));
 
 JHtml::addIncludePath(OSWISTIA_SRC . '/html');
+
+require OSWISTIA_SRC . '/helper.php';
+require OSWISTIA_SRC . '/wistiaembed.php';
