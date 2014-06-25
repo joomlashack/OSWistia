@@ -9,8 +9,6 @@ defined('_JEXEC') or die();
 
 abstract class plgContentWistiaEmbedHelper
 {
-    protected static $video_id_cache_prefix = 'video-id-';
-
     /**
      * Parse the {wistia}{/wistia}/<iframe src="... tags returning the video ID
      * It can extract the video ID from the two forms of Wistia embedding
@@ -120,35 +118,5 @@ abstract class plgContentWistiaEmbedHelper
         preg_match_all('#\{wistia([^\}]*)\}[^\{]*\{\/wistia\}#i', $text, $matches);
 
         return $matches[0];
-    }
-
-    /**
-     * Add the video id to the cache.
-     * The cache is indexed by the current URL
-     *
-     * @param string $id
-     */
-    public static function setVideoIdCache($id)
-    {
-        $uri = JURI::getInstance();
-        $hash = self::$video_id_cache_prefix . md5($uri->toString());
-
-        JFactory::getSession()->set($hash, $id);
-    }
-
-    /**
-     * Get the video id from the cache
-     * The cache is indexed by the current URL
-     *
-     * @return string
-     */
-    public static function getCachedVideoId()
-    {
-        $uri = JURI::getInstance();
-        $hash = self::$video_id_cache_prefix . md5($uri->toString());
-
-        $id = JFactory::getSession()->get($hash, '');
-
-        return $id;
     }
 }
