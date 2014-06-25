@@ -12,7 +12,7 @@ With this plugin, you can embed Wistia videos into articles simply by adding a t
 * height
 * autoplay
 * focus
-* closedcaptions
+* captions
 * nextURL
 * previousURL
 * homeURL
