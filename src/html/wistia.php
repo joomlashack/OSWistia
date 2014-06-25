@@ -59,14 +59,11 @@ abstract class JHtmlWistia
             );
 
             // Focus plugin
-            $isFocusEnabled = false;
-            if (isset($options['focus']) && $options['focus'] === true) {
-                $isFocusEnabled = true;
-
-                $pluginList['dimthelights'] = array(
-                    'src' => WISTIA_PLUGINS_PATH . '/dimthelights.min.js'
-                );
-            }
+            $isFocusEnabled = (isset($options['focus']) && $options['focus'] === true);
+            $pluginList['dimthelights'] = array(
+                'src'     => WISTIA_PLUGINS_PATH . '/dimthelights.min.js',
+                'autoDim' => $isFocusEnabled
+            );
 
             // Video size
             if (!isset($options['width'])) {
