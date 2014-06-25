@@ -8,6 +8,9 @@
 
 defined('_JEXEC') or die();
 
+define('WISTIA_PLUGINS_BASEURL', preg_replace('#http[s]?://#i', '//', JURI::base()));
+define('WISTIA_PLUGINS_PATH', WISTIA_PLUGINS_BASEURL . 'media/plg_content_wistiaembed/js/plugins/min');
+
 abstract class JHtmlWistia
 {
     /**
@@ -25,8 +28,6 @@ abstract class JHtmlWistia
         if (!empty($videoID)) {
             $pluginList = array();
 
-            $baseUrl = preg_replace('#http[s]?://#i', '//', JURI::base());
-
             // Resumable plugin
             $isResumableEnabled = false;
             if (isset($options['resumable']) && $options['resumable'] === true) {
@@ -34,7 +35,7 @@ abstract class JHtmlWistia
 
                 // Add the resumable plugin
                 $pluginList['resumable'] = array(
-                    'src'   => $baseUrl . 'media/plg_content_wistiaembed/js/plugins/min/resumable.min.js',
+                    'src'   => WISTIA_PLUGINS_PATH . '/resumable.min.js',
                     'async' => false
                 );
             }
@@ -46,7 +47,7 @@ abstract class JHtmlWistia
 
                 if ($isResumableEnabled) {
                     $pluginList['fixautoplayresumable'] = array(
-                        'src' => $baseUrl . 'media/plg_content_wistiaembed/js/plugins/min/fixautoplayresumable.min.js'
+                        'src' => WISTIA_PLUGINS_PATH . '/fixautoplayresumable.min.js'
                     );
                 }
             }
@@ -59,7 +60,7 @@ abstract class JHtmlWistia
             // Focus plugin
             if (isset($options['focus']) && $options['focus'] === true) {
                 $pluginList['dimthelights'] = array(
-                    'src' => $baseUrl . 'media/plg_content_wistiaembed/js/plugins/min/dimthelights.min.js'
+                    'src' => WISTIA_PLUGINS_PATH . '/dimthelights.min.js'
                 );
             }
 
