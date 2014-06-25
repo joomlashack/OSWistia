@@ -53,12 +53,16 @@ abstract class JHtmlWistia
             }
 
             // Closed Captions plugin
+            $isCaptionsEnabled = (isset($options['captions']) && $options['captions'] === true);
             $pluginList['captions-v1'] = array(
-                'onByDefault' => (isset($options['captions']) && $options['captions'] === true)
+                'onByDefault' => $isCaptionsEnabled
             );
 
             // Focus plugin
+            $isFocusEnabled = false;
             if (isset($options['focus']) && $options['focus'] === true) {
+                $isFocusEnabled = true;
+
                 $pluginList['dimthelights'] = array(
                     'src' => WISTIA_PLUGINS_PATH . '/dimthelights.min.js'
                 );
@@ -83,6 +87,8 @@ abstract class JHtmlWistia
             $html .= "    window.wistiaEmbed = Wistia.embed(\"" . $videoID . "\", {\n";
             $html .= "        autoPlay: " . ($isAutoplayEnabled ? "true" : "false") . ",\n";
             $html .= "        playerPreference: \"html5\",\n";
+            $html .= "        captions: " . ($isCaptionsEnabled ? "true" : "false") . ",\n";
+            $html .= "        focus: " . ($isFocusEnabled ? "true" : "false") . ",\n";
             $html .= "        plugin: " . json_encode($pluginList) . "\n";
             $html .= "    });\n";
             $html .= "</script>\n";
