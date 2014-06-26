@@ -67,11 +67,11 @@ abstract class JHtmlWistia
 
             // Video size
             if (!isset($options['width'])) {
-                $options['width'] = 800;
+                $options['width'] = 928;
             }
 
             if (!isset($options['height'])) {
-                $options['height'] = 600;
+                $options['height'] = 522;
             }
 
             $html = "<div";
