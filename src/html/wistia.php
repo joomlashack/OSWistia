@@ -93,4 +93,33 @@ abstract class JHtmlWistia
 
         return $html;
     }
+
+    /**
+     * Create the Wistia embed code using the an iframe.
+     *
+     * @param string  $videoID The wistia video ID
+     *
+     * @return string
+     */
+    public static function iframe($videoID)
+    {
+        $html = '<iframe src="//fast.wistia.net/embed/iframe/' . $videoID . '?videoFoam=true"
+            allowtransparency="true"
+            frameborder="0"
+            scrolling="no"
+            class="wistia_embed"
+            name="wistia_embed"
+            allowfullscreen
+            mozallowfullscreen
+            webkitallowfullscreen
+            oallowfullscreen
+            msallowfullscreen
+            width="900"
+            height="506"
+            ></iframe>';
+
+        $html .= '<script src="//fast.wistia.net/assets/external/iframe-api-v1.js"></script>"';
+
+        return $html;
+    }
 }

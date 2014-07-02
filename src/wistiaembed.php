@@ -50,8 +50,14 @@ class plgContentWistiaEmbed extends JPlugin
                 $tagData = plgContentWistiaEmbedHelper::parseWistiaTag($tag, $params);
 
                 if (!empty($tagData->id)) {
-                    // Get the embed code
-                    $embed = JHtml::_('wistia.embed', $tagData->id, $tagData->params);
+
+                    if (isset($params['iframe']) && $params['iframe']) {
+                        // Get the iframe code
+                        $embed = JHtml::_('wistia.iframe', $tagData->id);
+                    } else {
+                        // Get the embed code
+                        $embed = JHtml::_('wistia.embed', $tagData->id, $tagData->params);
+                    }
 
                     // Replace the tag with the embed code
                     $article->text = str_replace($tag, $embed, $article->text);
