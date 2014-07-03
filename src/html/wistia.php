@@ -107,6 +107,11 @@ abstract class JHtmlWistia
             $html .= "        captions: " . ($isCaptionsEnabled ? "true" : "false") . ",\n";
             $html .= "        focus: " . ($isFocusEnabled ? "true" : "false") . ",\n";
             $html .= "        plugin: " . json_encode($pluginList) . "\n";
+
+            if (isset($options['volume'])) {
+                $html .= "        ,volume: " . (float)$options['volume'] . "\n";
+            }
+
             $html .= "    });\n";
             $html .= "</script>\n";
         }
