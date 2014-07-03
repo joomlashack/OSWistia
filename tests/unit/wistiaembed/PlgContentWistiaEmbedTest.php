@@ -54,5 +54,22 @@ class PlgContentWistiaEmbedTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    // Test with multiple tags
+    /**
+     * Test get the embed code using the plugin wistiafollows
+     * params.
+     */
+    public function testEmbedPluginFollow()
+    {
+        $content = '{wistia plugins="{\"wistiafollows\":{\"src\":\"http:\/\/fast.wistia.com\/labs\/twitter-follows\/wistia-follows.js\",\"postRoll\":{\"screenName\":\"ostraining\",\"showScreenName\":true},\"people\":[{\"screenName\":\"ostraining\",\"start\":10,\"end\":20}]}}"}du3a1yf8q598a{/wistia}';
+
+        $preparedContent = $this->prepareContent($content);
+
+        $this->assertStringEqualsFile(
+            realpath(OSWISTIA_MOCK . '/embed_plugin_wistiafollows.html'),
+            $preparedContent,
+            "Wrong embed code for the wistiafollows plugin"
+        );
+    }
+
+    // TODO: Test with multiple tags
 }

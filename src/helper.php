@@ -9,6 +9,8 @@ defined('_JEXEC') or die();
 
 abstract class plgContentWistiaEmbedHelper
 {
+    private static $wistiaTagRegex = '/\{wistia([\sa-z0-9\/="\{:\\\_!@#\'%&\-\*\+\|;\?<>\$,\.\}\[\]]*)}([^\{]*)\{\/wistia\}/i';
+
     /**
      * Parse the {wistia}{/wistia}/<iframe src="... tags returning the video ID
      * It can extract the video ID from the two forms of Wistia embedding
@@ -25,8 +27,8 @@ abstract class plgContentWistiaEmbedHelper
         if (!empty($code)) {
             if (strpos($code, '{wistia') !== false) {
                 // Check if the source has the "wistia" replacement tag
-                if (preg_match('/\{wistia[^\}]*\}([^\{]*)\{\/wistia\}/', $code, $match)) {
-                    $id = trim($match[1]);
+                if (preg_match(self::$wistiaTagRegex, $code, $match)) {
+                    $id = trim($match[2]);
                 }
             } elseif (strpos($code, 'wistia') !== false) {
                 if (strpos($code, '<iframe ') !== false && preg_match('/src=["\'](.*?)["\']/', $code, $match)) {
@@ -60,11 +62,11 @@ abstract class plgContentWistiaEmbedHelper
     public static function parseParams($params, array $valid = array())
     {
         // Remove the wistia tag, extracting only the tag attributes
-        $params = str_replace('{wistia ', '', $params);
-        $params = preg_replace('#}[^{]*{/wistia}#', '', $params);
+        $params = preg_replace('/^\{wistia/', '', $params);
+        $params = preg_replace('/\}[a-z0-9\s]*\{\/wistia\}/', '', $params);
 
         // Parse the params
-        $regex = '/(.?)\s*=\s*[\'"](.+?)[\'"]\s*/';
+        $regex = '/([a-z0-9_]*)\s*=\s*([\sa-z0-9\/"\{:\\\_!@#\%&\-\*\+\|;\?<>\$,\.\}\[\]]*)"[\s]*/i';
         $parsed = array();
         if (preg_match_all($regex, $params, $vars)) {
             foreach ($vars[0] as $j => $var) {
@@ -115,7 +117,7 @@ abstract class plgContentWistiaEmbedHelper
      */
     public function extractWistiaTagsFromText($text)
     {
-        preg_match_all('#\{wistia([^\}]*)\}[^\{]*\{\/wistia\}#i', $text, $matches);
+        preg_match_all(self::$wistiaTagRegex, $text, $matches);
 
         return $matches[0];
     }

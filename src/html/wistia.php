@@ -65,6 +65,26 @@ abstract class JHtmlWistia
                 'autoDim' => $isFocusEnabled
             );
 
+            $customPlugins = null;
+            // Plugins manually set
+            if (isset($options['plugins'])) {
+                try {
+                    $optionPlugins = stripslashes($options['plugins']);
+                    $optionPlugins = preg_replace('/^"/', '', $optionPlugins);
+                    $optionPlugins = preg_replace('/"$/', '', $optionPlugins);
+                    $customPlugins = json_decode($optionPlugins, true);
+                    unset($optionPlugins);
+                } catch (Exception $e) {
+                    // Ignore exceptions caused by invalid json param
+                }
+            }
+
+            if (!empty($customPlugins)) {
+                foreach ($customPlugins as $plugin => $pluginOptions) {
+                    $pluginList[$plugin] = $pluginOptions;
+                }
+            }
+
             // Video size
             if (!isset($options['width'])) {
                 $options['width'] = 928;
