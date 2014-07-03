@@ -9,7 +9,7 @@ defined('_JEXEC') or die();
 
 abstract class plgContentWistiaEmbedHelper
 {
-    private static $wistiaTagRegex = '/\{wistia([\sa-z0-9\/="\{:\\\_!@#\'%&\-\*\+\|;\?<>\$,\.\}\[\]]*)}([^\{]*)\{\/wistia\}/i';
+    private static $wistiaTagRegex = '/\{wistia(?:(?!\{\/wistia\}).)*\}[\s]*([^{]*)[\s]*\{\/wistia\}/i';
 
     /**
      * Parse the {wistia}{/wistia}/<iframe src="... tags returning the video ID
@@ -28,7 +28,7 @@ abstract class plgContentWistiaEmbedHelper
             if (strpos($code, '{wistia') !== false) {
                 // Check if the source has the "wistia" replacement tag
                 if (preg_match(self::$wistiaTagRegex, $code, $match)) {
-                    $id = trim($match[2]);
+                    $id = trim($match[1]);
                 }
             } elseif (strpos($code, 'wistia') !== false) {
                 if (strpos($code, '<iframe ') !== false && preg_match('/src=["\'](.*?)["\']/', $code, $match)) {

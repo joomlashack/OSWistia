@@ -71,5 +71,21 @@ class PlgContentWistiaEmbedTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    // TODO: Test with multiple tags
+    /**
+     * Test get the embed code with multiple tags
+     * params.
+     */
+    public function testEmbedMultipleTags()
+    {
+        $content = file_get_contents(OSWISTIA_MOCK . '/code_multiple_tags.html');
+
+        $preparedContent = $this->prepareContent($content);
+        echo $preparedContent;
+        $this->assertStringEqualsFile(
+            realpath(OSWISTIA_MOCK . '/embed_multiple_tags.html'),
+            $preparedContent,
+            "Wrong embed code for multiple tags"
+        );
+    }
+
 }
