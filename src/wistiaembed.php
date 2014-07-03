@@ -51,6 +51,7 @@ class plgContentWistiaEmbed extends JPlugin
 
                 if (!empty($tagData->id)) {
 
+                    $useIframe = false;
                     if (is_object($params)) {
                         $useIframe = $params->get('iframe', false);
                     } elseif (is_array($params)) {
