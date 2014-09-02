@@ -1,0 +1,22 @@
+{
+    "name"             : "Alledia/OSWistia",
+    "description"      : "Embed Wistia videos into articles",
+    "minimum-stability": "stable",
+    "license"          : "GPL-2+",
+    "type"             : "joomla.plugin",
+    "extra"            : {
+        "element": "plg_content_wistiaembed",
+        "name":    "OSWistia",
+        "folder":  "content",
+        "client":  "site"
+    },
+    "authors"          : [
+        {
+            "name" : "Open Source Training",
+            "email": "info@ostraining.com"
+        }
+    ],
+    "require"          : {
+        "php"       : ">= 5.3"
+    }
+}
