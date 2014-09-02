@@ -24,5 +24,10 @@
         <language tag="en-GB">language/en-GB/en-GB.plg_content_wistiaembed.sys.ini</language>
     </languages>
 
-    <config></config>
+    <updateservers>
+        <server
+            type="extension"
+            priority="1"
+            name="OSWistia Updates"><![CDATA[http://deploy.ostraining.com/updates/joomla/plg_content_wistiaembed.xml]]></server>
+    </updateservers>
 </extension>
