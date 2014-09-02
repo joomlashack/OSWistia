@@ -1,3 +1,4 @@
 config.codekit
-
 .DS_Store
+phing/.DS_Store
+vendor
