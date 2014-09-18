@@ -38,7 +38,7 @@ class plgContentWistiaEmbed extends JPlugin
      */
     public function onContentPrepare($context, &$article, &$params, $page = 0)
     {
-        if (JString::strpos($article->text, '{wistia') === false) {
+        if (JString::strpos($article->text, '{wistia') === false or JString::strpos($article->text, '.wistia.com/medias/') === false) {
             return true;
         }
 
@@ -72,6 +72,24 @@ class plgContentWistiaEmbed extends JPlugin
             }
         }
 
+        $article->text = preg_replace(
+            '|(http://([a-zA-Z0-9_-]+).wistia.com/medias/([a-zA-Z0-9_-]+))|e',
+            '$this->wistiaCodeEmbed("\3")',
+            $article->text
+        );
+
         return true;
     }
+
+    protected function wistiaCodeEmbed($vCode)
+    {
+
+        $width  = 425;
+        $height = 344;
+
+        $output .= '<iframe width="' . $width . '" height="' . $height . '" frameborder="0" src="http://fast.wistia.net/embed/iframe/' . $vCode . '?portrait=0"></iframe>';
+
+        return $output;
+    }
+
 }
