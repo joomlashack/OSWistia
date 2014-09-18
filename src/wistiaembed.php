@@ -87,7 +87,7 @@ class plgContentWistiaEmbed extends JPlugin
         $width  = 425;
         $height = 344;
 
-        $output .= '<iframe width="' . $width . '" height="' . $height . '" frameborder="0" src="http://fast.wistia.net/embed/iframe/' . $vCode . '?portrait=0"></iframe>';
+        $output .= '<iframe width="' . $width . '" height="' . $height . '" frameborder="0" src="http://fast.wistia.net/embed/iframe/' . $vCode . '"></iframe>';
 
         return $output;
     }
