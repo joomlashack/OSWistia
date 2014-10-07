@@ -1,29 +1,29 @@
 <?php
 /**
- * @package   plg_content_wistiaembed
+ * @package   OSWistia
  * @contact   www.ostraining.com, support@ostraining.com
- * @copyright 2014 Open Source Training, LLC. All rights reserved
- * @license   http://www.gnu.org/licenses/gpl.html GNU/GPL
+ * @copyright 2013-2014 Open Source Training, LLC. All rights reserved
+ * @license   http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  */
 
 defined('_JEXEC') or die();
 
 jimport('joomla.plugin.plugin');
 
+require_once 'include.php';
 require_once "helper.php";
 
 /**
- * Wistia Video Embedder Content Plugin
+ * OSWistia Content Plugin
  *
  */
-class plgContentWistiaEmbed extends JPlugin
+class PlgContentOSWistia extends AbstractPlugin
 {
     public function __construct(&$subject, $config = array())
     {
-        parent::__construct($subject, $config);
+        $this->namespace = 'OSWistia';
 
-        $lang = JFactory::getLanguage();
-        $lang->load('plg_content_wistiaembed.sys', __DIR__);
+        parent::__construct($subject, $config);
 
         JHtml::addIncludePath(__DIR__ . '/html');
     }
