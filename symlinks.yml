@@ -1,0 +1,10 @@
+mkdir:
+    - plugins/content/oswistia
+symlinks:
+    - src/oswistia.xml: plugins/content/oswistia/oswistia.xml
+    - src/oswistia.php: plugins/content/oswistia/oswistia.php
+    - src/include.php: plugins/content/oswistia/include.php
+    - src/helper.php: plugins/content/oswistia/helper.php
+    - src/language: plugins/content/oswistia/language
+    - src/html: plugins/content/oswistia/html
+    - src/media: media/plg_content_oswistia
