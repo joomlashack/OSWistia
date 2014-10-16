@@ -51,6 +51,6 @@
         <server
             type="extension"
             priority="1"
-            name="OSWistia Updates"><![CDATA[http://deploy.ostraining.com/updates/joomla/plg_content_oswistia.xml]]></server>
+            name="OSWistia Updates"><![CDATA[http://deploy.alledia.com/updates/joomla/plg_content_oswistia.xml]]></server>
     </updateservers>
 </extension>

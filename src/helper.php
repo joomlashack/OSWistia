@@ -89,7 +89,7 @@ abstract class plgContentWistiaEmbedHelper
      * @param  array  $params An array with params to overwrite the params found on the tag
      * @return array          An array with ID and a list of params
      */
-    public function parseWistiaTag($tag, $params = array())
+    public static function parseWistiaTag($tag, $params = array())
     {
         $data = new stdClass;
 
@@ -115,7 +115,7 @@ abstract class plgContentWistiaEmbedHelper
      * @param  string $text A string with
      * @return array        An array with all {wista} tags found on the text
      */
-    public function extractWistiaTagsFromText($text)
+    public static function extractWistiaTagsFromText($text)
     {
         preg_match_all(self::$wistiaTagRegex, $text, $matches);
 

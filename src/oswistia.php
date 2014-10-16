@@ -6,12 +6,11 @@
  * @license   http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL
  */
 
+use Alledia\Joomla\Extension\AbstractPlugin;
+
 defined('_JEXEC') or die();
 
-jimport('joomla.plugin.plugin');
-
 require_once 'include.php';
-require_once "helper.php";
 
 /**
  * OSWistia Content Plugin
@@ -64,6 +63,10 @@ class PlgContentOSWistia extends AbstractPlugin
                     } else {
                         // Get the embed code
                         $embed = JHtml::_('wistia.embed', $tagData->id, $tagData->params);
+                    }
+
+                    if ($this->isPro()) {
+                        // $embed = OSWistiaEmbed::call_your_method_here();
                     }
 
                     // Replace the tag with the embed code
