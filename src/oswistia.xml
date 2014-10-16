@@ -1,28 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="2.5" type="plugin" group="content" method="upgrade">
     <name>PLG_CONTENT_OSWISTIA</name>
-    <author>OSTraining</author>
-    <creationDate>July 3 2014</creationDate>
-    <copyright>Copyright (C) 2014 OSTraining.com</copyright>
+    <author>Alledia</author>
+    <creationDate>October 15 2014</creationDate>
+    <copyright>Copyright (C) 2014 Alledia.com</copyright>
     <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
-    <authorEmail>info@ostraining.com</authorEmail>
-    <authorUrl>http://www.ostraining.com</authorUrl>
-    <version>1.0.4</version>
+    <authorEmail>hello@alledia.com</authorEmail>
+    <authorUrl>https://www.alledia.com</authorUrl>
+    <version>1.0.5</version>
     <description>PLG_CONTENT_OSWISTIA_DESCRIPTION</description>
 
     <scriptfile>script.installer.php</scriptfile>
-
-    <files>
-        <folder>language</folder>
-        <filename plugin="oswistia">oswistia.php</filename>
-        <filename>include.php</filename>
-        <filename>helper.php</filename>
-        <folder>html</folder>
-    </files>
-
-    <media destination="plg_content_oswistia" folder="media">
-        <folder>js</folder>
-    </media>
 
     <alledia>
         <element publish="true">oswistia</element>
@@ -44,6 +32,20 @@
 
         <obsoleteItems/>
     </alledia>
+
+    <files>
+        <folder>language</folder>
+        <folder>library</folder>
+        <folder>views</folder>
+        <filename plugin="oswistia">oswistia.php</filename>
+        <filename>include.php</filename>
+        <filename>helper.php</filename>
+        <folder>html</folder>
+    </files>
+
+    <media destination="plg_content_oswistia" folder="media">
+        <folder>js</folder>
+    </media>
 
     <updateservers>
         <server

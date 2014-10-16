@@ -1,6 +1,6 @@
 /**
- * @package   com_oswistia
- * @contact   www.ostraining.com, support@ostraining.com
+ * @package   OSWistia
+ * @contact   www.alledia.com, hello@alledia.com
  * @copyright 2014 Wistia. All rights reserved
  */
 /* global Wistia */
