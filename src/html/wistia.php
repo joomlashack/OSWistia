@@ -21,7 +21,7 @@ abstract class JHtmlWistia
      *
      * @return string
      */
-    public static function embed($videoID, $options = array())
+    public static function embed($videoID, $options = array(), $settings = array())
     {
         $html = '';
 
@@ -85,19 +85,10 @@ abstract class JHtmlWistia
                 }
             }
 
-            // Video size
-            if (!isset($options['width'])) {
-                $options['width'] = 928;
-            }
-
-            if (!isset($options['height'])) {
-                $options['height'] = 522;
-            }
-
             $html = "<div";
             $html .= " id=\"wistia_" . $videoID . "\"";
             $html .= " class=\"wistia_embed\"";
-            $html .= " style=\"width:" . $options["width"] . "px; height:" . $options["height"] . "px;\"";
+            $html .= " style=\"width:" . $settings["width"] . "px; height:" . $settings["height"] . "px;\"";
             $html .= "></div>\n";
             $html .= "<script charset=\"ISO-8859-1\" src=\"//fast.wistia.com/assets/external/E-v1.js\"></script>\n";
             $html .= "<script>\n";

@@ -41,6 +41,11 @@ class PlgContentOSWistia extends AbstractPlugin
             return true;
         }
 
+        $params = $this->params;
+
+        $settings['width']      = $params->get('width', 425);
+        $settings['height']     = $params->get('height', 344);
+
         $tags = plgContentWistiaEmbedHelper::extractWistiaTagsFromText($article->text);
 
         if (!empty($tags)) {
@@ -59,10 +64,10 @@ class PlgContentOSWistia extends AbstractPlugin
 
                     if ($useIframe) {
                         // Get the iframe code
-                        $embed = JHtml::_('wistia.iframe', $tagData->id);
+                        $embed = JHtml::_('wistia.iframe', $tagData->id, $options);
                     } else {
                         // Get the embed code
-                        $embed = JHtml::_('wistia.embed', $tagData->id, $tagData->params);
+                        $embed = JHtml::_('wistia.embed', $tagData->id, $tagData->params, $settings);
                     }
 
                     if ($this->isPro()) {
