@@ -8,6 +8,8 @@
 
 namespace Alledia\OSWistia\Free;
 
+use stdClass;
+
 defined('_JEXEC') or die();
 
 class Embed
@@ -45,7 +47,7 @@ class Embed
             $width  = $this->params->get("width", 425);
             $height = $this->params->get("height", 344);
 
-            $embedOptions = $this->getEmbedOptionsAsJSON();
+            $embedOptions = json_encode($this->getEmbedOptions());
 
             $html = "<div";
             $html .= " id=\"wistia_{$this->videoId}\"";
@@ -62,12 +64,16 @@ class Embed
     }
 
     /**
-     * Return the embed options as JSON string
+     * Return the embed options as object
      *
      * @return string
      */
-    protected function getEmbedOptionsAsJSON()
+    protected function getEmbedOptions()
     {
-        return '{}';
+        $options = new stdClass;
+
+        $options->videoFoam = (bool) $this->params->get('responsive', true);
+
+        return $options;
     }
 }
