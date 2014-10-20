@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension version="2.5" type="plugin" group="content" method="upgrade">
-    <name>PLG_CONTENT_OSWISTIA</name>
+    <name>plg_content_oswistia</name>
     <author>Alledia</author>
     <creationDate>October 15 2014</creationDate>
     <copyright>Copyright (C) 2014 Alledia.com</copyright>
@@ -12,27 +12,6 @@
 
     <scriptfile>script.installer.php</scriptfile>
 
-    <alledia>
-        <element publish="true">oswistia</element>
-
-        <namespace>OSWistia</namespace>
-
-        <relatedExtensions>
-            <extension
-                    type="library"
-                    element="allediaframework">AllediaFramework</extension>
-
-            <extension
-                    type="plugin"
-                    group="system"
-                    element="oscarootcertificates"
-                    publish="true"
-                    ordering="first">OSCARootCertificates</extension>
-        </relatedExtensions>
-
-        <obsoleteItems/>
-    </alledia>
-
     <files>
         <folder>language</folder>
         <folder>library</folder>
@@ -42,6 +21,122 @@
         <filename>helper.php</filename>
         <folder>html</folder>
     </files>
+
+    <alledia>
+        <element publish="true">oswistia</element>
+
+        <namespace>OSWistia</namespace>
+
+        <relatedExtensions>
+            <extension
+                type="library"
+                element="allediaframework">AllediaFramework</extension>
+
+            <extension
+                type="plugin"
+                group="system"
+                element="oscarootcertificates"
+                publish="true"
+                ordering="first">OSCARootCertificates</extension>
+
+            <extension
+                type="plugin"
+                group="system"
+                element="osmylicensesmanager"
+                publish="true"
+                ordering="last">OSMyLicensesManager</extension>
+        </relatedExtensions>
+    </alledia>
+
+    <config>
+        <fields name="params">
+            <fieldset name="basic">
+                <field
+                        name="width"
+                        type="text"
+                        default="425"
+                        label="PLG_CONTENT_OSWISTIA_FIELD_WIDTH_LABEL"
+                        description="PLG_CONTENT_OSWISTIA_FIELD_WIDTH_DESC"/>
+
+                <field
+                        name="height"
+                        type="text"
+                        default="344"
+                        label="PLG_CONTENT_OSWISTIA_FIELD_HEIGHT_LABEL"
+                        description="PLG_CONTENT_OSWISTIA_FIELD_HEIGHT_DESC"/>
+                <field
+                        name="color"
+                        type="color"
+                        default=""
+                        label="PLG_CONTENT_OSWISTIA_FIELD_COLOR_LABEL"
+                        description="PLG_CONTENT_OSWISTIA_FIELD_COLOR_DESC" />
+                <field
+                        name="volume"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="true"
+                        label="PLG_CONTENT_OSWISTIA_FIELD_VOLUME_LABEL"
+                        description="PLG_CONTENT_OSWISTIA_FIELD_VOLUME_DESC">
+                    <option value="true">JYES</option>
+                    <option value="false">JNO</option>
+                </field>
+                <field
+                        name="fullscreen"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="true"
+                        label="PLG_CONTENT_OSWISTIA_FIELD_FULLSCREEN_LABEL"
+                        description="PLG_CONTENT_OSWISTIA_FIELD_FULLSCREEN_DESC">
+                    <option value="true">JYES</option>
+                    <option value="false">JNO</option>
+                </field>
+                <field
+                        name="playbar"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="true"
+                        label="PLG_CONTENT_OSWISTIA_FIELD_PLAYBAR_LABEL"
+                        description="PLG_CONTENT_OSWISTIA_FIELD_PLAYBAR_DESC">
+                    <option value="true">JYES</option>
+                    <option value="false">JNO</option>
+                </field>
+                <field
+                        name="playButton"
+                        type="radio"
+                        class="btn-group btn-group-yesno"
+                        default="true"
+                        label="PLG_CONTENT_OSWISTIA_FIELD_PLAY_LABEL"
+                        description="PLG_CONTENT_OSWISTIA_FIELD_PLAY_DESC">
+                    <option value="true">JYES</option>
+                    <option value="false">JNO</option>
+                </field>
+                <field
+                        name="player"
+                        type="list"
+                        class="btn-group"
+                        default="auto"
+                        label="PLG_CONTENT_OSWISTIA_FIELD_PLAYER_LABEL"
+                        description="PLG_CONTENT_OSWISTIA_FIELD_PLAYER_DESC">
+                    <option value="auto">PLG_CONTENT_OSWISTIA_AUTO</option>
+                    <option value="flash">PLG_CONTENT_OSWISTIA_FLASH</option>
+                    <option value="html5">PLG_CONTENT_OSWISTIA_HTML5</option>
+                </field>
+                <field
+                        name="quality"
+                        type="list"
+                        class="btn-group"
+                        default="auto"
+                        label="PLG_CONTENT_OSWISTIA_FIELD_QUALITY_LABEL"
+                        description="PLG_CONTENT_OSWISTIA_FIELD_QUALITY_DESC">
+                    <option value="auto">PLG_CONTENT_OSWISTIA_AUTO</option>
+                    <option value="sd-only">PLG_CONTENT_OSWISTIA_SDONLY</option>
+                    <option value="md">PLG_CONTENT_OSWISTIA_MD</option>
+                    <option value="hd-only">PLG_CONTENT_OSWISTIA_HDONLY</option>
+                </field>
+
+            </fieldset>
+        </fields>
+    </config>
 
     <media destination="plg_content_oswistia" folder="media">
         <folder>js</folder>
