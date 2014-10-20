@@ -48,6 +48,6 @@
     </media>
 
     <updateservers>
-        <server type="extension" priority="1" name="OSWistia"><![CDATA[https://deploy.ostraining.com/client/update/free/stable/plg_content_oswistia]]></server>
+        <server type="extension" priority="1" name="OSWistia Pro"><![CDATA[https://deploy.ostraining.com/client/update/pro/stable/plg_content_oswistia]]></server>
     </updateservers>
 </extension>
