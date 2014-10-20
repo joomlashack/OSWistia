@@ -20,5 +20,3 @@ if (!defined('ALLEDIA_FRAMEWORK_LOADED')) {
 
     require_once $allediaFrameworkPath;
 }
-
-require_once "helper.php";

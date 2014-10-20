@@ -23,8 +23,6 @@ class PlgContentOSWistia extends AbstractPlugin
         $this->namespace = 'OSWistia';
 
         parent::__construct($subject, $config);
-
-        JHtml::addIncludePath(__DIR__ . '/html');
     }
 
     /**
@@ -41,41 +39,27 @@ class PlgContentOSWistia extends AbstractPlugin
             return true;
         }
 
-        $params = $this->params;
+        $params = new JRegistry($this->params);
 
-        $settings['width']      = $params->get('width', 425);
-        $settings['height']     = $params->get('height', 344);
-
-        $tags = plgContentWistiaEmbedHelper::extractWistiaTagsFromText($article->text);
+        $content = new Alledia\Framework\Content\Text($article->text);
+        $tags = $content->getTags('wistia');
 
         if (!empty($tags)) {
             foreach ($tags as $tag) {
-                // Extract ID and params from the tag
-                $tagData = plgContentWistiaEmbedHelper::parseWistiaTag($tag, $params);
+                $videoId = $tag->getContent();
 
-                if (!empty($tagData->id)) {
-
-                    $useIframe = false;
-                    if (is_object($params)) {
-                        $useIframe = $params->get('iframe', false);
-                    } elseif (is_array($params)) {
-                        $useIframe = isset($params['iframe']) && $params['iframe'];
-                    }
-
-                    if ($useIframe) {
-                        // Get the iframe code
-                        $embed = JHtml::_('wistia.iframe', $tagData->id, $options);
-                    } else {
-                        // Get the embed code
-                        $embed = JHtml::_('wistia.embed', $tagData->id, $tagData->params, $settings);
-                    }
+                if (!empty($videoId)) {
+                    // Merge the default params
+                    $tag->params = $this->params->merge($tag->params);
 
                     if ($this->isPro()) {
-                        // $embed = OSWistiaEmbed::call_your_method_here();
+                        $embed = new Alledia\OSWistia\Pro\Embed($videoId, $tag->params);
+                    } else {
+                        $embed = new Alledia\OSWistia\Free\Embed($videoId, $tag->params);
                     }
 
                     // Replace the tag with the embed code
-                    $article->text = str_replace($tag, $embed, $article->text);
+                    $article->text = str_replace($tag->toString(), $embed->toString(), $article->text);
                 }
             }
         }
