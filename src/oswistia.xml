@@ -58,8 +58,8 @@
 
                 <field
                     name="responsive"
-                    type="list"
-                    class="btn-group"
+                    type="radio"
+                    class="btn-group btn-group-yesno"
                     default="1"
                     label="PLG_CONTENT_OSWISTIA_FIELD_REPSONSIVE_LABEL"
                     description="PLG_CONTENT_OSWISTIA_FIELD_REPSONSIVE_DESC">
