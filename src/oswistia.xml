@@ -36,13 +36,6 @@
                 element="oscarootcertificates"
                 publish="true"
                 ordering="first">OSCARootCertificates</extension>
-
-            <extension
-                type="plugin"
-                group="system"
-                element="osmylicensesmanager"
-                publish="true"
-                ordering="last">OSMyLicensesManager</extension>
         </relatedExtensions>
     </alledia>
 
