@@ -66,7 +66,7 @@
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
-                <field type="spacer" name="gopro" label="PLG_CONTENT_OSWISTIA_FIELD_GOPRO_LABEL" />
+                <field type="spacer" name="gopro" label="&lt;div class=&quot;alert alert-success&quot;&gt;&lt;i class=&quot;icon-publish&quot;&gt;&lt;/i&gt; &lt;a href=&quot;https://www.alledia.com/plans/&quot; style=&quot;color:#ed8034;&quot; target=&quot;_blank&quot;&gt;Go Pro to access more features!&lt;/a&gt;&lt;/div&gt;" />
             </fieldset>
         </fields>
     </config>
