@@ -66,6 +66,7 @@
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
+                <field type="spacer" name="gopro" label="PLG_CONTENT_OSWISTIA_FIELD_GOPRO_LABEL" />
             </fieldset>
         </fields>
     </config>
