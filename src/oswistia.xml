@@ -39,6 +39,12 @@
         <filename>include.php</filename>
     </files>
 
+    <media destination="plg_content_oswistia" folder="media">
+        <folder>images</folder>
+        <folder>css</folder>
+        <folder>js</folder>
+    </media>
+
     <config>
         <fields name="params">
             <fieldset name="basic">
