@@ -24,7 +24,7 @@
         <element publish="true">oswistia</element>
 
         <namespace>OSWistia</namespace>
-
+        <license>free</license>
         <relatedExtensions>
             <extension
                 type="library"
