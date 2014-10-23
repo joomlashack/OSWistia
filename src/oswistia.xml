@@ -12,6 +12,14 @@
 
     <scriptfile>script.installer.php</scriptfile>
 
+    <files>
+        <folder>language</folder>
+        <folder>library</folder>
+        <folder>views</folder>
+        <filename plugin="oswistia">oswistia.php</filename>
+        <filename>include.php</filename>
+    </files>
+
     <alledia>
         <element publish="true">oswistia</element>
 
@@ -30,20 +38,6 @@
                 ordering="first">OSCARootCertificates</extension>
         </relatedExtensions>
     </alledia>
-
-    <files>
-        <folder>language</folder>
-        <folder>library</folder>
-        <folder>views</folder>
-        <filename plugin="oswistia">oswistia.php</filename>
-        <filename>include.php</filename>
-    </files>
-
-    <media destination="plg_content_oswistia" folder="media">
-        <folder>images</folder>
-        <folder>css</folder>
-        <folder>js</folder>
-    </media>
 
     <config>
         <fields name="params" addfieldpath="/libraries/allediaframework/Framework/Joomla/Field">
@@ -72,7 +66,7 @@
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
-                <field type="GoPro" name="allediaplans" label="" description="" />
+                <field type="GoPro" name="allediaplans" label="" description="" class="ost-gopro" />
             </fieldset>
         </fields>
     </config>
