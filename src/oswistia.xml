@@ -12,14 +12,6 @@
 
     <scriptfile>script.installer.php</scriptfile>
 
-    <files>
-        <folder>language</folder>
-        <folder>library</folder>
-        <folder>views</folder>
-        <filename plugin="oswistia">oswistia.php</filename>
-        <filename>include.php</filename>
-    </files>
-
     <alledia>
         <element publish="true">oswistia</element>
 
@@ -38,6 +30,14 @@
                 ordering="first">OSCARootCertificates</extension>
         </relatedExtensions>
     </alledia>
+
+    <files>
+        <folder>language</folder>
+        <folder>library</folder>
+        <folder>views</folder>
+        <filename plugin="oswistia">oswistia.php</filename>
+        <filename>include.php</filename>
+    </files>
 
     <config>
         <fields name="params">
