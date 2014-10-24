@@ -71,7 +71,7 @@
                     <option value="0">JNO</option>
                 </field>
 
-                <field type="GoPro" name="allediaplans" label="" description="" class="ost-gopro" />
+                <field type="gopro" name="allediaplans" label="" description="" class="ost-gopro" />
 
             </fieldset>
         </fields>
