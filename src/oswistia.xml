@@ -45,7 +45,7 @@
     </media>
 
     <config>
-        <fields name="params">
+        <fields name="params" addfieldpath="/libraries/allediaframework/Framework/Joomla/Field">
             <fieldset name="basic">
                 <field
                     name="width"
@@ -71,7 +71,7 @@
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
-                <field type="spacer" name="gopro" label="&lt;div class=&quot;alert alert-success&quot;&gt;&lt;i class=&quot;icon-publish&quot;&gt;&lt;/i&gt; &lt;a href=&quot;https://www.alledia.com/plans/&quot; style=&quot;color:#ed8034;&quot; target=&quot;_blank&quot;&gt;Go Pro to access more features!&lt;/a&gt;&lt;/div&gt;" />
+                <field type="GoPro" name="allediaplans" label="" description="" class="ost-gopro" />
             </fieldset>
         </fields>
     </config>
