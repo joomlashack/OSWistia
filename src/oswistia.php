@@ -39,6 +39,8 @@ class PlgContentOSWistia extends AbstractPlugin
             return true;
         }
 
+        $this->init();
+
         $params = new JRegistry($this->params);
 
         $content = new Alledia\Framework\Content\Text($article->text);

@@ -71,7 +71,9 @@
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
+
                 <field type="GoPro" name="allediaplans" label="" description="" class="ost-gopro" />
+
             </fieldset>
         </fields>
     </config>
