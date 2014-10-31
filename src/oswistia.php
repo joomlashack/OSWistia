@@ -12,60 +12,62 @@ defined('_JEXEC') or die();
 
 require_once 'include.php';
 
-/**
- * OSWistia Content Plugin
- *
- */
-class PlgContentOSWistia extends AbstractPlugin
-{
-    public function __construct(&$subject, $config = array())
-    {
-        $this->namespace = 'OSWistia';
-
-        parent::__construct($subject, $config);
-    }
-
+if (defined('ALLEDIA_FRAMEWORK_LOADED')) {
     /**
-     * @param string $context
-     * @param object $article
-     * @param object $params
-     * @param int    $page
+     * OSWistia Content Plugin
      *
-     * @return bool
      */
-    public function onContentPrepare($context, &$article, &$params, $page = 0)
+    class PlgContentOSWistia extends AbstractPlugin
     {
-        if (JString::strpos($article->text, '{wistia') === false) {
-            return true;
+        public function __construct(&$subject, $config = array())
+        {
+            $this->namespace = 'OSWistia';
+
+            parent::__construct($subject, $config);
         }
 
-        $this->init();
+        /**
+         * @param string $context
+         * @param object $article
+         * @param object $params
+         * @param int    $page
+         *
+         * @return bool
+         */
+        public function onContentPrepare($context, &$article, &$params, $page = 0)
+        {
+            if (JString::strpos($article->text, '{wistia') === false) {
+                return true;
+            }
 
-        $params = new JRegistry($this->params);
+            $this->init();
 
-        $content = new Alledia\Framework\Content\Text($article->text);
-        $tags = $content->getTags('wistia');
+            $params = new JRegistry($this->params);
 
-        if (!empty($tags)) {
-            foreach ($tags as $tag) {
-                $videoId = $tag->getContent();
+            $content = new Alledia\Framework\Content\Text($article->text);
+            $tags = $content->getTags('wistia');
 
-                if (!empty($videoId)) {
-                    // Merge the default params
-                    $tag->params = $this->params->merge($tag->params);
+            if (!empty($tags)) {
+                foreach ($tags as $tag) {
+                    $videoId = $tag->getContent();
 
-                    if ($this->isPro()) {
-                        $embed = new Alledia\OSWistia\Pro\Embed($videoId, $tag->params);
-                    } else {
-                        $embed = new Alledia\OSWistia\Free\Embed($videoId, $tag->params);
+                    if (!empty($videoId)) {
+                        // Merge the default params
+                        $tag->params = $this->params->merge($tag->params);
+
+                        if ($this->isPro()) {
+                            $embed = new Alledia\OSWistia\Pro\Embed($videoId, $tag->params);
+                        } else {
+                            $embed = new Alledia\OSWistia\Free\Embed($videoId, $tag->params);
+                        }
+
+                        // Replace the tag with the embed code
+                        $article->text = str_replace($tag->toString(), $embed->toString(), $article->text);
                     }
-
-                    // Replace the tag with the embed code
-                    $article->text = str_replace($tag->toString(), $embed->toString(), $article->text);
                 }
             }
-        }
 
-        return true;
+            return true;
+        }
     }
 }
