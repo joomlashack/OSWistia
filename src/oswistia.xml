@@ -73,7 +73,13 @@
                     <option value="0">JNO</option>
                 </field>
 
-                <field type="gopro" name="allediaplans" label="" description="" class="ost-gopro" />
+                <field
+                    type="gopro"
+                    name="allediaplans"
+                    label=""
+                    description=""
+                    class="ost-gopro"
+                    media="plg_content_oswistia"/>
 
             </fieldset>
         </fields>
