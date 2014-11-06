@@ -2,12 +2,12 @@
 <extension version="2.5" type="plugin" group="content" method="upgrade">
     <name>plg_content_oswistia</name>
     <author>Alledia</author>
-    <creationDate>October 15 2014</creationDate>
+    <creationDate>November 6 2014</creationDate>
     <copyright>Copyright (C) 2014 Alledia.com</copyright>
     <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
     <authorEmail>hello@alledia.com</authorEmail>
     <authorUrl>https://www.alledia.com</authorUrl>
-    <version>1.0.10-beta</version>
+    <version>1.0.10</version>
     <description>PLG_CONTENT_OSWISTIA_DESCRIPTION</description>
 
     <alledia>
