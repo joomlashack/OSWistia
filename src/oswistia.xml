@@ -46,7 +46,7 @@
     </media>
 
     <config>
-        <fields name="params" addfieldpath="/libraries/allediaframework/joomla/fields">
+        <fields name="params" addfieldpath="/plugins/content/oswistia/form/fields">
             <fieldset name="basic">
                 <field
                     name="width"
