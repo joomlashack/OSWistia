@@ -53,7 +53,9 @@ if (defined('ALLEDIA_FRAMEWORK_LOADED')) {
 
                     if (!empty($videoId)) {
                         // Merge the default params
-                        $tag->params = $this->params->merge($tag->params);
+                        $params = clone($this->params);
+                        $params->merge($tag->params);
+                        $tag->params = $params;
 
                         if ($this->isPro()) {
                             $embed = new Alledia\OSWistia\Pro\Embed($videoId, $tag->params);
