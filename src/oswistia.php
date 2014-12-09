@@ -42,9 +42,12 @@ if (defined('ALLEDIA_FRAMEWORK_LOADED')) {
 
             $this->init();
 
-            $params = new JRegistry($this->params);
+            $contentParams = new JRegistry($params);
 
-            $content = new Alledia\Framework\Content\Text($article->text);
+            $defaultParams = clone($this->params);
+            $defaultParams->merge($contentParams);
+
+            $content = new Alledia\Framework\Content\Text($article->text, $defaultParams);
             $tags = $content->getTags('wistia');
 
             if (!empty($tags)) {
@@ -53,9 +56,9 @@ if (defined('ALLEDIA_FRAMEWORK_LOADED')) {
 
                     if (!empty($videoId)) {
                         // Merge the default params
-                        $params = clone($this->params);
-                        $params->merge($tag->params);
-                        $tag->params = $params;
+                        $tagDefaultParams = clone($defaultParams);
+                        $tagDefaultParams->merge($tag->params);
+                        $tag->params = $tagDefaultParams;
 
                         if ($this->isPro()) {
                             $embed = new Alledia\OSWistia\Pro\Embed($videoId, $tag->params);
