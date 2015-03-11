@@ -75,13 +75,11 @@
                 </field>
 
                 <field
-                    type="gopro"
-                    name="allediaplans"
-                    label=""
-                    description=""
-                    class="ost-gopro"
-                    media="plg_content_oswistia"/>
-
+                    type="customfooter"
+                    name="customfooter"
+                    media="com_osmap"
+                    showgoproad="1"
+                    jedurl="http://extensions.joomla.org/profile/extension/social-web/social-media/oswistia" />
             </fieldset>
         </fields>
     </config>
