@@ -77,7 +77,7 @@
                 <field
                     type="customfooter"
                     name="customfooter"
-                    media="com_osmap"
+                    media="plg_content_oswistia"
                     showgoproad="1"
                     jedurl="http://extensions.joomla.org/profile/extension/social-web/social-media/oswistia" />
             </fieldset>
