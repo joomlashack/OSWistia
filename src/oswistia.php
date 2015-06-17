@@ -48,7 +48,7 @@ if (defined('ALLEDIA_FRAMEWORK_LOADED')) {
             $defaultParams->merge($contentParams);
 
             $content = new Alledia\Framework\Content\Text($article->text, $defaultParams);
-            $tags = $content->getTags('wistia');
+            $tags = $content->getPluginTags('wistia');
 
             if (!empty($tags)) {
                 foreach ($tags as $tag) {
