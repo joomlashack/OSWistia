@@ -10,6 +10,8 @@
     <version>1.0.16a1</version>
     <description>PLG_CONTENT_OSWISTIA_DESCRIPTION</description>
 
+    <variant>FREE</variant>
+
     <alledia>
         <element publish="true">oswistia</element>
         <namespace>OSWistia</namespace>
