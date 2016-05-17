@@ -8,29 +8,8 @@
     <authorEmail>support@alledia.com</authorEmail>
     <authorUrl>https://www.alledia.com</authorUrl>
     <version>1.0.16</version>
-    <description>PLG_CONTENT_OSWISTIA_DESCRIPTION</description>
-
     <variant>FREE</variant>
-
-    <alledia>
-        <element publish="true">oswistia</element>
-        <namespace>OSWistia</namespace>
-        <license>free</license>
-        <targetplatform>3.*</targetplatform>
-        <relatedExtensions>
-            <extension
-                type="library"
-                element="allediaframework">AllediaFramework</extension>
-
-            <extension
-                type="plugin"
-                group="system"
-                element="ossystem"
-                publish="true"
-                ordering="first">OSSystem</extension>
-        </relatedExtensions>
-        <include>AllediaFreeDefaultFiles</include>
-    </alledia>
+    <description>PLG_CONTENT_OSWISTIA_DESCRIPTION</description>
 
     <scriptfile>script.installer.php</scriptfile>
 
@@ -91,4 +70,24 @@
     <updateservers>
         <server type="extension" priority="1" name="OSWistia"><![CDATA[https://deploy.ostraining.com/client/update/free/stable/plg_content_oswistia]]></server>
     </updateservers>
+
+    <alledia>
+        <element publish="true">oswistia</element>
+        <namespace>OSWistia</namespace>
+        <license>free</license>
+        <targetplatform>3.*</targetplatform>
+        <relatedExtensions>
+            <extension
+                type="library"
+                element="allediaframework">AllediaFramework</extension>
+
+            <extension
+                type="plugin"
+                group="system"
+                element="ossystem"
+                publish="true"
+                ordering="first">OSSystem</extension>
+        </relatedExtensions>
+        <include>AllediaFreeDefaultFiles</include>
+    </alledia>
 </extension>
