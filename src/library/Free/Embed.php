@@ -44,19 +44,20 @@ class Embed
         $html = '';
 
         if (!empty($this->videoId)) {
-            $width  = $this->params->get("width", 425);
-            $height = $this->params->get("height", 344);
-
+            $width        = $this->params->get("width", 425);
+            $height       = $this->params->get("height", 344);
+            $shortVideoId = substr($this->videoId, 0, 3);
             $embedOptions = json_encode($this->getEmbedOptions());
 
             $html = "<div";
             $html .= " id=\"wistia_{$this->videoId}\"";
-            $html .= " class=\"wistia_embed\"";
+            $html .= " class=\"wistia_embed wistia_async_{$this->videoId}\"";
             $html .= " style=\"width:{$width}px; height:{$height}px;\"";
             $html .= "></div>\n";
-            $html .= "<script charset=\"ISO-8859-1\" src=\"//fast.wistia.com/assets/external/E-v1.js\"></script>\n";
+            $html .= "<script src=\"//fast.wistia.com/assets/external/E-v1.js\" async></script>\n";
             $html .= "<script>\n";
-            $html .= "    window.wistiaEmbed = Wistia.embed(\"{$this->videoId}\", {$embedOptions});\n";
+            $html .= "    window._wq = window._wq || []; _wq.push({\"{$shortVideoId}\": {$embedOptions}});\n";
+            $html .= "    _wq.push({id: \"{$shortVideoId}\", onReady: function(video) {window.wistiaEmbed = video;}});\n";
             $html .= "</script>\n";
         }
 
