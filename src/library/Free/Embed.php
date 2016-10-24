@@ -49,16 +49,27 @@ class Embed
             $shortVideoId = substr($this->videoId, 0, 3);
             $embedOptions = json_encode($this->getEmbedOptions());
 
-            $html = "<div";
-            $html .= " id=\"wistia_{$this->videoId}\"";
-            $html .= " class=\"wistia_embed wistia_async_{$this->videoId}\"";
-            $html .= " style=\"width:{$width}px; height:{$height}px;\"";
-            $html .= "></div>\n";
+            $class = array(
+                'wistia_embed',
+                'wistia_async_' . $this->videoId
+            );
+
+            if ($this->params->get('responsive', true)) {
+                $class[] = 'videoFoam=true';
+            }
+
+            $attribs = array(
+                sprintf('id="wistia_%s"', $this->videoId),
+                sprintf('class="%s"', join(' ', $class)),
+                sprintf('style="width:%spx; height:%spx;"', $width, $height)
+            );
+
             $html .= "<script src=\"//fast.wistia.com/assets/external/E-v1.js\" async></script>\n";
             $html .= "<script>\n";
             $html .= "    window._wq = window._wq || []; _wq.push({\"{$shortVideoId}\": {$embedOptions}});\n";
             $html .= "    _wq.push({id: \"{$shortVideoId}\", onReady: function(video) {window.wistiaEmbed = video;}});\n";
             $html .= "</script>\n";
+            $html = '<div ' . join(' ', $attribs) . "></div>\n";
         }
 
         return $html;
@@ -73,7 +84,7 @@ class Embed
     {
         $options = new stdClass;
 
-        $options->videoFoam = (bool) $this->params->get('responsive', true);
+        $options->videoFoam = (bool)$this->params->get('responsive', true);
 
         return $options;
     }
