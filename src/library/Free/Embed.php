@@ -64,12 +64,12 @@ class Embed
                 sprintf('style="width:%spx; height:%spx;"', $width, $height)
             );
 
-            $html .= "<script src=\"//fast.wistia.com/assets/external/E-v1.js\" async></script>\n";
+            $html = "<script src=\"//fast.wistia.com/assets/external/E-v1.js\" async></script>\n";
             $html .= "<script>\n";
             $html .= "    window._wq = window._wq || []; _wq.push({\"{$shortVideoId}\": {$embedOptions}});\n";
             $html .= "    _wq.push({id: \"{$shortVideoId}\", onReady: function(video) {window.wistiaEmbed = video;}});\n";
             $html .= "</script>\n";
-            $html = '<div ' . join(' ', $attribs) . "></div>\n";
+            $html .= '<div ' . join(' ', $attribs) . "></div>\n";
         }
 
         return $html;
