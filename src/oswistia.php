@@ -7,6 +7,7 @@
  */
 
 use Alledia\Framework\Joomla\Extension\AbstractPlugin;
+use Joomla\Registry\Registry;
 
 defined('_JEXEC') or die();
 
@@ -42,7 +43,7 @@ if (defined('ALLEDIA_FRAMEWORK_LOADED')) {
 
             $this->init();
 
-            $contentParams = new JRegistry($params);
+            $contentParams = new Registry($params);
 
             $defaultParams = clone($this->params);
             $defaultParams->merge($contentParams);

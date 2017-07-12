@@ -8,6 +8,7 @@
 
 namespace Alledia\OSWistia\Free;
 
+use Joomla\Registry\Registry;
 use stdClass;
 
 defined('_JEXEC') or die();
@@ -24,7 +25,7 @@ class Embed
     /**
      * The embed params
      *
-     * @var \JRegistry
+     * @var Registry
      */
     protected $params;
 
