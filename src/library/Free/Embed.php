@@ -42,8 +42,6 @@ class Embed
      */
     public function toString()
     {
-        $html = '';
-
         if (!empty($this->videoId)) {
             $width        = $this->params->get("width", 425);
             $height       = $this->params->get("height", 344);
@@ -65,15 +63,20 @@ class Embed
                 sprintf('style="width:%spx; height:%spx;"', $width, $height)
             );
 
-            $html = '<div ' . join(' ', $attribs) . "></div>\n";
-            $html .= "<script src=\"//fast.wistia.com/assets/external/E-v1.js\" async></script>\n";
-            $html .= "<script>\n";
-            $html .= "    window._wq = window._wq || []; _wq.push({\"{$shortVideoId}\": {$embedOptions}});\n";
-            $html .= "    _wq.push({id: \"{$shortVideoId}\", onReady: function(video) {window.wistiaEmbed = video;}});\n";
-            $html .= "</script>\n";
+            $html = array(
+                sprintf('<div %s></div>', join(' ', $attribs)),
+                '<script src="//fast.wistia.com/assets/external/E-v1.js" async></script>',
+                '<script>',
+                "    window._wq = window._wq || [];",
+                "    _wq.push({'{$shortVideoId}': {$embedOptions}});",
+                "    _wq.push({id: '{$shortVideoId}', onReady: function(video) {window.wistiaEmbed = video;}});",
+                '</script>'
+            );
+
+            return join("\n", $html);
         }
 
-        return $html;
+        return '';
     }
 
     /**
