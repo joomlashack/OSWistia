@@ -8,7 +8,14 @@
 
 defined('_JEXEC') or die();
 
-define('OSWISTIA_PLUGIN_PATH', __DIR__);
+if (!defined('OSWISTIA_PLUGIN_PATH')) {
+    define('OSWISTIA_PLUGIN_PATH', __DIR__);
+}
+
+if (!defined('OSWISTIA_MEDIA_URL')) {
+    $baseURL = preg_replace('#http[s]?://#i', '//', JURI::root());
+    define('OSWISTIA_MEDIA_URL', $baseURL . 'media/plg_content_oswistia');
+}
 
 // Alledia Framework
 if (!defined('ALLEDIA_FRAMEWORK_LOADED')) {

@@ -69,8 +69,9 @@ class Embed
                 '<script>',
                 "    window._wq = window._wq || [];",
                 "    _wq.push({'{$shortVideoId}': {$embedOptions}});",
-                "    _wq.push({id: '{$shortVideoId}', onReady: function(video) {window.wistiaEmbed = video;}});",
-                '</script>'
+                "    _wq.push({id: '{$shortVideoId}', onReady: function(video) {window.wistiaEmbed = video; OSWistiaInit(video);}});",
+                '</script>',
+                "<script src=\""  . OSWISTIA_MEDIA_URL . "/js/oswistia.js\" async></script>\n",
             );
 
             return join("\n", $html);
