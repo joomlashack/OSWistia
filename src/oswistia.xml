@@ -57,12 +57,11 @@
                     <option value="0">JNO</option>
                 </field>
 
-                <field
-                    type="customfooter"
+                <field type="customfooter"
                     name="customfooter"
                     media="plg_content_oswistia"
-                    showgoproad="1"
-                    jedurl="http://extensions.joomla.org/profile/extension/social-web/social-media/oswistia" />
+                    showgoproad="https://www.joomlashack.com/joomla-extensions/oswistia/"
+                    jedurl="https://extensions.joomla.org/extension/oswistia/"/>
             </fieldset>
         </fields>
     </config>
