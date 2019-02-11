@@ -18,6 +18,7 @@
         <folder>library</folder>
         <folder>views</folder>
         <folder>form</folder>
+
         <filename plugin="oswistia">oswistia.php</filename>
         <filename>include.php</filename>
     </files>
@@ -32,36 +33,33 @@
     <config>
         <fields name="params" addfieldpath="/plugins/content/oswistia/form/fields">
             <fieldset name="basic">
-                <field
-                    name="width"
-                    type="text"
-                    default="425"
-                    label="PLG_CONTENT_OSWISTIA_FIELD_WIDTH_LABEL"
-                    description="PLG_CONTENT_OSWISTIA_FIELD_WIDTH_DESC"/>
+                <field name="width"
+                       type="text"
+                       default="425"
+                       label="PLG_CONTENT_OSWISTIA_FIELD_WIDTH_LABEL"
+                       description="PLG_CONTENT_OSWISTIA_FIELD_WIDTH_DESC"/>
 
-                <field
-                    name="height"
-                    type="text"
-                    default="344"
-                    label="PLG_CONTENT_OSWISTIA_FIELD_HEIGHT_LABEL"
-                    description="PLG_CONTENT_OSWISTIA_FIELD_HEIGHT_DESC"/>
+                <field name="height"
+                       type="text"
+                       default="344"
+                       label="PLG_CONTENT_OSWISTIA_FIELD_HEIGHT_LABEL"
+                       description="PLG_CONTENT_OSWISTIA_FIELD_HEIGHT_DESC"/>
 
-                <field
-                    name="responsive"
-                    type="radio"
-                    class="btn-group btn-group-yesno"
-                    default="1"
-                    label="PLG_CONTENT_OSWISTIA_FIELD_REPSONSIVE_LABEL"
-                    description="PLG_CONTENT_OSWISTIA_FIELD_REPSONSIVE_DESC">
+                <field name="responsive"
+                       type="radio"
+                       class="btn-group btn-group-yesno"
+                       default="1"
+                       label="PLG_CONTENT_OSWISTIA_FIELD_REPSONSIVE_LABEL"
+                       description="PLG_CONTENT_OSWISTIA_FIELD_REPSONSIVE_DESC">
                     <option value="1">JYES</option>
                     <option value="0">JNO</option>
                 </field>
 
                 <field type="customfooter"
-                    name="customfooter"
-                    media="plg_content_oswistia"
-                    showgoproad="https://www.joomlashack.com/joomla-extensions/oswistia/"
-                    jedurl="https://extensions.joomla.org/extension/oswistia/"/>
+                       name="customfooter"
+                       media="plg_content_oswistia"
+                       showgoproad="https://www.joomlashack.com/joomla-extensions/oswistia/"
+                       jedurl="https://extensions.joomla.org/extension/oswistia/"/>
             </fieldset>
         </fields>
     </config>
@@ -76,16 +74,14 @@
         <license>free</license>
         <targetplatform>3.*</targetplatform>
         <relatedExtensions>
-            <extension
-                type="library"
-                element="allediaframework">AllediaFramework</extension>
+            <extension type="library"
+                       element="allediaframework">AllediaFramework</extension>
 
-            <extension
-                type="plugin"
-                group="system"
-                element="ossystem"
-                publish="true"
-                ordering="first">OSSystem</extension>
+            <extension type="plugin"
+                       group="system"
+                       element="ossystem"
+                       publish="true"
+                       ordering="first">OSSystem</extension>
         </relatedExtensions>
         <include>AllediaFreeDefaultFiles</include>
     </alledia>
