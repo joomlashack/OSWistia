@@ -21,8 +21,10 @@
  * along with OSWistia.  If not, see <http://www.gnu.org/licenses/>.
  */
 
+use Alledia\Framework\Content\Text;
 use Alledia\Framework\Joomla\Extension\AbstractPlugin;
 use Joomla\Registry\Registry;
+use Joomla\String\StringHelper;
 
 defined('_JEXEC') or die();
 
@@ -43,16 +45,16 @@ if (defined('ALLEDIA_FRAMEWORK_LOADED')) {
         }
 
         /**
-         * @param string $context
-         * @param object $article
-         * @param object $params
-         * @param int    $page
+         * @param string   $context
+         * @param object   $article
+         * @param Registry $params
+         * @param int      $page
          *
          * @return bool
          */
-        public function onContentPrepare($context, &$article, &$params, $page = 0)
+        public function onContentPrepare($context, $article, $params, $page = 0)
         {
-            if (JString::strpos($article->text, '{wistia') === false) {
+            if (StringHelper::strpos($article->text, '{wistia') === false) {
                 return true;
             }
 
@@ -63,8 +65,8 @@ if (defined('ALLEDIA_FRAMEWORK_LOADED')) {
             $defaultParams = clone($this->params);
             $defaultParams->merge($contentParams);
 
-            $content = new Alledia\Framework\Content\Text($article->text, $defaultParams);
-            $tags = $content->getPluginTags('wistia');
+            $content = new Text($article->text);
+            $tags    = $content->getPluginTags('wistia');
 
             if (!empty($tags)) {
                 foreach ($tags as $tag) {
